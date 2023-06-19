@@ -1,4 +1,5 @@
 const axios = require("axios");
+const { TOKEN } = require("./constant");
 
 module.exports = {
   async fanCounts(name) {
@@ -18,6 +19,18 @@ module.exports = {
       {
         headers: {
           "Content-Type": "application/json",
+        },
+      }
+    );
+  },
+
+  async creatorLeaderboard(username) {
+    return await axios.get(
+      `https://dev.fanblast.com/backend/api/v1/leader-board/${username.toLowerCase()}/creator?ts=a`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          authorization: TOKEN,
         },
       }
     );

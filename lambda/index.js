@@ -70,6 +70,32 @@ const vcardIntentHandler = {
   },
 };
 
+const leaderboardIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) === "leaderboardIntent"
+    );
+  },
+  async handle(handlerInput) {
+    const { responseBuilder, requestEnvelope } = handlerInput;
+
+    const username = Alexa.getSlotValue(requestEnvelope, "username");
+
+    const res = await api.creatorLeaderboard(username);
+
+    const list = await helper.createArrayReadable(res.data.data.items, 5);
+
+    const speakOutput = `<p><s> Here is ${username}'s top <say-as interpret-as="ordinal">5</say-as> fans </s></p> 
+    <p><s> ${list} </s></p> `;
+
+    return responseBuilder
+      .speak(speakOutput)
+      .reprompt(speakOutput)
+      .getResponse();
+  },
+};
+
 const msgIntentHandler = {
   canHandle(handlerInput) {
     return (
@@ -366,7 +392,8 @@ exports.handler = skillBuilder
     SessionEndedRequestHandler,
     fanCountIntentHandler,
     msgIntentHandler,
-    vcardIntentHandler
+    vcardIntentHandler,
+    leaderboardIntentHandler
   )
   .addRequestInterceptors(RequestLog)
   .addResponseInterceptors(ResponseLog)
