@@ -1,6 +1,7 @@
 const Alexa = require("ask-sdk-core");
 const constants = require("./constant");
 const api = require("./axios");
+const firebase = require("./firebase");
 const helper = require("./helper");
 
 const LaunchRequestHandler = {
@@ -12,11 +13,35 @@ const LaunchRequestHandler = {
   handle(handlerInput) {
     const speakOutput =
       "Welcome Fan Blast, for fan count you can say fan count or Help. Which would you like to try?";
-
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
       .getResponse();
+  },
+};
+
+const FirebaseIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) === "FirebaseIntent"
+    );
+  },
+  async handle(handlerInput) {
+    try {
+      const speakOutput = await firebase.getData();
+
+      return handlerInput.responseBuilder
+        .speak(speakOutput)
+        .reprompt(speakOutput)
+        .getResponse();
+    } catch (error) {
+      const speakOutput = `Sorry, there was an error retrieving data from the firebase.${error}`;
+      return handlerInput.responseBuilder
+        .speak(speakOutput)
+        .reprompt(speakOutput)
+        .getResponse();
+    }
   },
 };
 
@@ -393,7 +418,8 @@ exports.handler = skillBuilder
     fanCountIntentHandler,
     msgIntentHandler,
     vcardIntentHandler,
-    leaderboardIntentHandler
+    leaderboardIntentHandler,
+    FirebaseIntentHandler
   )
   .addRequestInterceptors(RequestLog)
   .addResponseInterceptors(ResponseLog)
