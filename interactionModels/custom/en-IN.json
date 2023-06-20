@@ -114,7 +114,10 @@
             {
               "name": "username",
               "type": "AMAZON.FirstName",
-              "samples": ["{username}", "for {username}"]
+              "samples": [
+                "{username}",
+                "for {username}"
+              ]
             }
           ],
           "name": "FanCountIntent",
@@ -158,12 +161,18 @@
             {
               "name": "username",
               "type": "AMAZON.FirstName",
-              "samples": ["for {username}", "{username}"]
+              "samples": [
+                "for {username}",
+                "{username}"
+              ]
             },
             {
               "name": "socialtype",
               "type": "socialtype",
-              "samples": ["for {socialtype}", "{socialtype}"]
+              "samples": [
+                "for {socialtype}",
+                "{socialtype}"
+              ]
             }
           ],
           "name": "SocialIntent",
@@ -179,12 +188,18 @@
             {
               "name": "duration",
               "type": "AMAZON.DURATION",
-              "samples": ["every {duration}", "{duration}"]
+              "samples": [
+                "every {duration}",
+                "{duration}"
+              ]
             },
             {
               "name": "username",
               "type": "AMAZON.FirstName",
-              "samples": ["for {username}", "{username}"]
+              "samples": [
+                "for {username}",
+                "{username}"
+              ]
             }
           ],
           "name": "StartUpdatesIntent",
@@ -199,11 +214,17 @@
             {
               "name": "username",
               "type": "AMAZON.FirstName",
-              "samples": ["{username}", "for {username}"]
+              "samples": [
+                "{username}",
+                "for {username}"
+              ]
             }
           ],
           "name": "vcardIntent",
-          "samples": ["vcard", "vcard of {username}"]
+          "samples": [
+            "vcard",
+            "vcard of {username}"
+          ]
         }
       ],
       "types": [
@@ -211,42 +232,54 @@
           "values": [
             {
               "name": {
-                "synonyms": ["ig"],
+                "synonyms": [
+                  "ig"
+                ],
                 "value": "instagram"
               },
               "id": "01"
             },
             {
               "name": {
-                "synonyms": ["fb"],
+                "synonyms": [
+                  "fb"
+                ],
                 "value": "facebook"
               },
               "id": "02"
             },
             {
               "name": {
-                "synonyms": ["yt"],
+                "synonyms": [
+                  "yt"
+                ],
                 "value": "youtube"
               },
               "id": "03"
             },
             {
               "name": {
-                "synonyms": ["tk"],
+                "synonyms": [
+                  "tk"
+                ],
                 "value": "tiktok"
               },
               "id": "04"
             },
             {
               "name": {
-                "synonyms": ["tch"],
+                "synonyms": [
+                  "tch"
+                ],
                 "value": "twitch"
               },
               "id": "05"
             },
             {
               "name": {
-                "synonyms": ["twt"],
+                "synonyms": [
+                  "twt"
+                ],
                 "value": "twitter"
               },
               "id": "06"
@@ -255,7 +288,7 @@
           "name": "socialtype"
         }
       ],
-      "invocationName": "fan blast one"
+      "invocationName": "blast app"
     },
     "prompts": [
       {
