@@ -11,7 +11,7 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     const speakOutput =
-      "Welcome Fan Blast, for fan count you can say fan count or Help. Which would you like to try?";
+      "Welcome to Fanblast. You can ask like fan count of creatorname, top fans of creatorname, phone number of creatorname, insights of creatorname, messages of creatorname.";
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
@@ -34,7 +34,7 @@ const fanCountIntentHandler = {
     const res = await api.fanCounts(username);
 
     const speakOutput = res
-      ? `${username} has ${res.data.data.totalFanCounts} fans`
+      ? `${username} has ${res.data.data.totalFanCounts} true fans`
       : `sorry ${username} not found`;
 
     return responseBuilder
@@ -60,7 +60,7 @@ const vcardIntentHandler = {
 
     const vCard = res.data.data.vCard ? res.data.data.vCard.phone : null;
 
-    const speakOutput = `vCard of ${username} is <say-as interpret-as="telephone">${vCard}</say-as>`;
+    const speakOutput = `Virtual number of ${username} is <say-as interpret-as="telephone">${vCard}</say-as>`;
 
     return responseBuilder
       .speak(speakOutput)
@@ -85,7 +85,7 @@ const leaderboardIntentHandler = {
 
     const list = await helper.createArrayReadable(res.data.data.items, 5);
 
-    const speakOutput = `<p><s> Here is ${username}'s top <say-as interpret-as="ordinal">5</say-as> fans </s></p> 
+    const speakOutput = `<p><s> Here are  ${username}'s top <say-as interpret-as="ordinal">5</say-as> true fans </s></p> 
     <p><s> ${list} </s></p> `;
 
     return responseBuilder
@@ -109,7 +109,7 @@ const kpiIntentHandler = {
 
     const list = await helper.KpiRes(res);
 
-    const speakOutput = `<p><s> Here is last 24 Hours statistics </s></p> 
+    const speakOutput = `<p><s>Here are your insights. You did great in the last 24 hours. You got <break time="100ms"/></s></p> 
     <p><s> ${list} </s></p>`;
 
     return responseBuilder
