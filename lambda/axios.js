@@ -26,7 +26,7 @@ module.exports = {
 
   async creatorLeaderboard(username) {
     return await axios.get(
-      `https://dev.fanblast.com/backend/api/v1/leader-board/${username.toLowerCase()}/creator?ts=a`,
+      `https://api.fanblast.com/api/v1/leader-board/${username.toLowerCase()}/creator`,
       {
         headers: {
           "Content-Type": "application/json",
@@ -39,7 +39,7 @@ module.exports = {
   async homeScreenKpi() {
     return await axios
       .post(
-        `https://dev.fanblast.com/backend/api/v1/kpi/home-screen-kpi-v2`,
+        `https://api.fanblast.com/api/v1/kpi/home-screen-kpi-v2`,
         { timeframe: "24h" },
         {
           headers: {
@@ -49,5 +49,18 @@ module.exports = {
         }
       )
       .then((res) => res.data.data);
+  },
+
+  async getMessages(username) {
+    return await axios
+      .get(
+        `https://ee75-2401-4900-1c80-bc6f-c1a8-3484-3dc7-a06.ngrok-free.app/${username.toLowerCase()}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((res) => res.data);
   },
 };

@@ -83,7 +83,9 @@ const leaderboardIntentHandler = {
   async handle(handlerInput) {
     const { responseBuilder, requestEnvelope } = handlerInput;
 
-    const username = Alexa.getSlotValue(requestEnvelope, "username");
+    const slotValue = Alexa.getSlotValue(requestEnvelope, "username");
+
+    const username = slotValue ? slotValue : "knossi";
 
     const res = await api.creatorLeaderboard(username);
 
@@ -113,8 +115,7 @@ const kpiIntentHandler = {
 
     const list = await helper.KpiRes(res);
 
-    const speakOutput = `<p><s>Here are your insights. You did great in the last 24 hours. You got <break time="100ms"/></s></p> 
-    <p><s> ${list} </s></p>`;
+    const speakOutput = `<p><s>Here are your insights. You did great in the last 24 hours. You got <break time="100ms"/></s></p> <p><s> ${list} </s></p>`;
 
     return responseBuilder
       .speak(speakOutput)
@@ -131,11 +132,20 @@ const msgIntentHandler = {
     );
   },
   async handle(handlerInput) {
-    const speakOutput = `You have total ${Math.round(
-      Math.random(10) * 100
-    )} msg in your inbox!`;
+    const { responseBuilder, requestEnvelope } = handlerInput;
 
-    return handlerInput.responseBuilder
+    const slotValue = Alexa.getSlotValue(requestEnvelope, "username");
+
+    const username = slotValue ? slotValue : "knossi";
+
+    const res = await api.getMessages(username);
+
+    const list = await helper.messageRes(res);
+
+    const speakOutput = `<p><s>Here are your messages.<break time="100ms"/></s></p> 
+    <p><s> ${list} </s></p>`;
+
+    return responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
       .getResponse();

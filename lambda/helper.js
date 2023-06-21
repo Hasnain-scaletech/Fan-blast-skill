@@ -28,36 +28,51 @@ module.exports = {
   },
 
   async KpiRes(obj) {
-    const keys = Object.keys(obj);
+    try{
+        const keys = Object.keys(obj);
     let response = "";
 
-    for (let i = 0; i < keys.length; i++) {
-      const key = keys[i];
-      const count = obj[key].count;
-      const name = constants.KPIINSIGHTS[key];
+      for (let i = 0; i < keys.length; i++) {
+    const key = keys[i];
+    const count = obj[key].count;
+    const name = constants.KPIINSIGHTS[key];
+    if (key === "euro"&& count !== 0) {
+      response += `${name} ${count} ${key}`;
 
-      if (count !== 0) {
-        response += `${count} ${name}`;
+      response +=
+        i === keys.length - 2
+          ? `<break time="100ms"/>  and `
+          : `<break time="100ms"/> `;
+    } else if (count !== 0) {
+      response += `${count} ${name}`;
 
-        response +=
-          i === keys.length - 2
-            ? `<break time="100ms"/>  and `
-            : `<break time="100ms"/> `;
-      }
+      response +=
+        i === keys.length - 2
+          ? `<break time="100ms"/>  and `
+          : `<break time="100ms"/> `;
     }
+  }
     return response;
+    }catch(error){
+        return 'error'
+    }
   },
 
   async messageRes(obj) {
     const keys = Object.keys(obj);
+    let temp = 5;
     let response = "";
-  
-    for (let i = 0; i < 5; i++) {
+
+    for (let i = 0; i < temp; i++) {
+      console.log(i, obj[keys[i]].message);
       if (obj[keys[i]].message && obj[keys[i]].message !== "") {
-        response += `${obj[keys[i]].name} said  <break time="100ms"/> ${obj[keys[i]].message}  <break time="200ms"/> `;
+        response += `${obj[keys[i]].name} said  <break time="100ms"/> ${
+          obj[keys[i]].message
+        }  <break time="200ms"/> `;
+      } else {
+        temp = temp + 1;
       }
     }
     return response;
-  }
-  
+  },
 };
