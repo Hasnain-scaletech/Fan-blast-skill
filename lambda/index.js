@@ -95,6 +95,30 @@ const leaderboardIntentHandler = {
   },
 };
 
+const kpiIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
+      Alexa.getIntentName(handlerInput.requestEnvelope) === "statisticsIntent"
+    );
+  },
+  async handle(handlerInput) {
+    const { responseBuilder } = handlerInput;
+
+    const res = await api.homeScreenKpi();
+
+    const list = await helper.KpiRes(res);
+
+    const speakOutput = `<p><s> Here is last 24 Hours statistics </s></p> 
+    <p><s> ${list} </s></p>`;
+
+    return responseBuilder
+      .speak(speakOutput)
+      .reprompt(speakOutput)
+      .getResponse();
+  },
+};
+
 const msgIntentHandler = {
   canHandle(handlerInput) {
     return (
@@ -392,7 +416,8 @@ exports.handler = skillBuilder
     fanCountIntentHandler,
     msgIntentHandler,
     vcardIntentHandler,
-    leaderboardIntentHandler
+    leaderboardIntentHandler,
+    kpiIntentHandler
   )
   .addRequestInterceptors(RequestLog)
   .addResponseInterceptors(ResponseLog)

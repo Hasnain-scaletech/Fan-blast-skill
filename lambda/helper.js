@@ -1,3 +1,5 @@
+const constants = require("./constant");
+
 module.exports = {
   async mobileFinder(serviceClientFactory) {
     const upsServiceClient = serviceClientFactory.getUpsServiceClient();
@@ -28,11 +30,11 @@ module.exports = {
   async KpiRes(obj) {
     const keys = Object.keys(obj);
     let response = `In the last 24 hours <break time="100ms"/>`;
-    
+
     for (let i = 0; i < keys.length; i++) {
       const key = keys[i];
       const count = obj[key].count;
-      const name = constant[key];
+      const name = constants[key];
 
       if (count !== 0) {
         response += `${count} ${name}`;

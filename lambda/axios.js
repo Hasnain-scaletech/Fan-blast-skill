@@ -48,6 +48,6 @@ module.exports = {
           },
         }
       )
-      .then((res) => res.data.data.pageVisitors.count);
+      .then((res) => res.data.data);
   },
 };
