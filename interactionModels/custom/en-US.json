@@ -83,6 +83,22 @@
           "name": "vcardIntent",
           "confirmationRequired": false,
           "prompts": {}
+        },
+        {
+          "slots": [
+            {
+              "name": "username",
+              "elicitationRequired": true,
+              "type": "AMAZON.FirstName",
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.885593271719.1251378432350"
+              }
+            }
+          ],
+          "name": "leaderboardIntent",
+          "confirmationRequired": false,
+          "prompts": {}
         }
       ],
       "delegationStrategy": "ALWAYS"
@@ -225,6 +241,23 @@
             "vcard",
             "vcard of {username}"
           ]
+        },
+        {
+          "slots": [
+            {
+              "name": "username",
+              "type": "AMAZON.FirstName",
+              "samples": [
+                "for {username}",
+                "{username}"
+              ]
+            }
+          ],
+          "name": "leaderboardIntent",
+          "samples": [
+            "leaderboard",
+            "leaderboard of {username}"
+          ]
         }
       ],
       "types": [
@@ -288,7 +321,7 @@
           "name": "socialtype"
         }
       ],
-      "invocationName": "blast app"
+      "invocationName": "fan blast one"
     },
     "prompts": [
       {
@@ -388,6 +421,15 @@
           }
         ],
         "id": "Elicit.Slot.800670886286.1609976352828"
+      },
+      {
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "ok, but for which user\u0027s leaderboard you want?"
+          }
+        ],
+        "id": "Elicit.Slot.885593271719.1251378432350"
       }
     ]
   }

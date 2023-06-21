@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { TOKEN } = require("./constant");
+const { TOKEN, TIMEFRAME } = require("./constant");
 
 module.exports = {
   async fanCounts(name) {
@@ -34,5 +34,20 @@ module.exports = {
         },
       }
     );
+  },
+
+  async homeScreenKpi() {
+    return await axios
+      .post(
+        `https://dev.fanblast.com/backend/api/v1/kpi/home-screen-kpi-v2`,
+        { timeframe: "24h" },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            authorization: TOKEN,
+          },
+        }
+      )
+      .then((res) => res.data.data.pageVisitors.count);
   },
 };

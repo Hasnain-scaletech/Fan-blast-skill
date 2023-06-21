@@ -13,7 +13,6 @@
     "ask-sdk-model": "^1.19.0",
     "aws-sdk": "^2.326.0",
     "axios": "^1.4.0",
-    "firebase-admin": "9.6.0",
-    "firebase": "^8.2.6"
+    "firebase-admin": "9.6.0"
   }
 }

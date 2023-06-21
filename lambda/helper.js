@@ -16,7 +16,7 @@ module.exports = {
 
   async createArrayReadable(array, limit) {
     let data = "";
-    for (let i = 1; (i = limit); i++) {
+    for (let i = 1; i <= limit; i++) {
       data += `<say-as interpret-as="ordinal">${i}</say-as>, ${
         array[i - 1].name
       } <break time="100ms"/>`;
