@@ -47,4 +47,17 @@ module.exports = {
     }
     return response;
   },
+
+  async messageRes(obj) {
+    const keys = Object.keys(obj);
+    let response = "";
+  
+    for (let i = 0; i < 5; i++) {
+      if (obj[keys[i]].message && obj[keys[i]].message !== "") {
+        response += `${obj[keys[i]].name} said  <break time="100ms"/> ${obj[keys[i]].message}  <break time="200ms"/> `;
+      }
+    }
+    return response;
+  }
+  
 };

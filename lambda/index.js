@@ -11,7 +11,7 @@ const LaunchRequestHandler = {
   },
   handle(handlerInput) {
     const speakOutput =
-      "Welcome to Fanblast. You can ask like fan count of creatorname, top fans of creatorname, phone number of creatorname, insights of creatorname, messages of creatorname.";
+      "Welcome to Fanblast. You can ask like fan count of creatorname, top fans, phone number of creatorname, insights , messages.";
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
@@ -29,12 +29,14 @@ const fanCountIntentHandler = {
   async handle(handlerInput) {
     const { responseBuilder, requestEnvelope } = handlerInput;
 
-    const username = Alexa.getSlotValue(requestEnvelope, "username");
+    const slotValue = Alexa.getSlotValue(requestEnvelope, "username");
+
+    const username = slotValue ? slotValue : "knossi";
 
     const res = await api.fanCounts(username);
 
     const speakOutput = res
-      ? `${username} has ${res.data.data.totalFanCounts} true fans`
+      ? `${username} has ${res.data.data.totalFanCounts} real fans`
       : `sorry ${username} not found`;
 
     return responseBuilder
@@ -54,7 +56,9 @@ const vcardIntentHandler = {
   async handle(handlerInput) {
     const { responseBuilder, requestEnvelope } = handlerInput;
 
-    const username = Alexa.getSlotValue(requestEnvelope, "username");
+    const slotValue = Alexa.getSlotValue(requestEnvelope, "username");
+
+    const username = slotValue ? slotValue : "knossi";
 
     const res = await api.creatorDetails(username);
 

@@ -1,398 +1,445 @@
 {
   "interactionModel": {
-    "languageModel": {
-      "invocationName": "fan blast one",
-      "intents": [
-        {
-          "name": "AMAZON.CancelIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.HelpIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.StopIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.NavigateHomeIntent",
-          "samples": []
-        },
-        {
-          "name": "AMAZON.FallbackIntent",
-          "samples": []
-        },
-        {
-          "name": "FanCountIntent",
-          "slots": [
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "samples": ["{username}", "for {username}"]
-            }
+      "languageModel": {
+          "invocationName": "blast app",
+          "intents": [
+              {
+                  "name": "AMAZON.CancelIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.HelpIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.StopIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.NavigateHomeIntent",
+                  "samples": []
+              },
+              {
+                  "name": "AMAZON.FallbackIntent",
+                  "samples": []
+              },
+              {
+                  "name": "FanCountIntent",
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName"
+                      }
+                  ],
+                  "samples": [
+                      "fan count",
+                      "fan count {username}",
+                      "fan count of {username}"
+                  ]
+              },
+              {
+                  "name": "MessageIntent",
+                  "slots": [],
+                  "samples": [
+                      "new messages count",
+                      "how many messages recived",
+                      "inbox status"
+                  ]
+              },
+              {
+                  "name": "EmailIntent",
+                  "slots": [],
+                  "samples": [
+                      "email",
+                      "what is my email",
+                      "what's my email address"
+                  ]
+              },
+              {
+                  "name": "MobileIntent",
+                  "slots": [],
+                  "samples": [
+                      "mobile",
+                      "phone",
+                      "mobile number",
+                      "what is my mobile number",
+                      "what is my phone number"
+                  ]
+              },
+              {
+                  "name": "SocialIntent",
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "samples": [
+                              "for {username}",
+                              "{username}"
+                          ]
+                      },
+                      {
+                          "name": "socialtype",
+                          "type": "socialtype",
+                          "samples": [
+                              "for {socialtype}",
+                              "{socialtype}"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "give me {socialtype} link",
+                      "social handles of {username}",
+                      "give me {socialtype} link  of {username}",
+                      "{socialtype} link of {username}"
+                  ]
+              },
+              {
+                  "name": "StartUpdatesIntent",
+                  "slots": [
+                      {
+                          "name": "duration",
+                          "type": "AMAZON.DURATION",
+                          "samples": [
+                              "every {duration}",
+                              "{duration}"
+                          ]
+                      },
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "samples": [
+                              "for {username}",
+                              "{username}"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "keep me updated with {username} fans every {duration}",
+                      "remind me fancount ",
+                      "get me fancounts of {username} every {duration}"
+                  ]
+              },
+              {
+                  "name": "vcardIntent",
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "samples": [
+                              "{username}",
+                              "for {username}"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "phone number of {username}",
+                      "vcard",
+                      "vcard of {username}"
+                  ]
+              },
+              {
+                  "name": "leaderboardIntent",
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "samples": [
+                              "for {username}",
+                              "{username}"
+                          ]
+                      }
+                  ],
+                  "samples": [
+                      "top fans of {username}",
+                      "leaderboard",
+                      "leaderboard of {username}"
+                  ]
+              },
+              {
+                  "name": "statisticsIntent",
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName"
+                      }
+                  ],
+                  "samples": [
+                      "insights",
+                      "statistics"
+                  ]
+              }
           ],
-          "samples": [
-            "fan count",
-            "fan count {username}",
-            "fan count of {username}"
+          "types": [
+              {
+                  "name": "socialtype",
+                  "values": [
+                      {
+                          "id": "01",
+                          "name": {
+                              "value": "instagram",
+                              "synonyms": [
+                                  "ig"
+                              ]
+                          }
+                      },
+                      {
+                          "id": "02",
+                          "name": {
+                              "value": "facebook",
+                              "synonyms": [
+                                  "fb"
+                              ]
+                          }
+                      },
+                      {
+                          "id": "03",
+                          "name": {
+                              "value": "youtube",
+                              "synonyms": [
+                                  "yt"
+                              ]
+                          }
+                      },
+                      {
+                          "id": "04",
+                          "name": {
+                              "value": "tiktok",
+                              "synonyms": [
+                                  "tk"
+                              ]
+                          }
+                      },
+                      {
+                          "id": "05",
+                          "name": {
+                              "value": "twitch",
+                              "synonyms": [
+                                  "tch"
+                              ]
+                          }
+                      },
+                      {
+                          "id": "06",
+                          "name": {
+                              "value": "twitter",
+                              "synonyms": [
+                                  "twt"
+                              ]
+                          }
+                      }
+                  ]
+              }
           ]
-        },
-        {
-          "name": "MessageIntent",
-          "slots": [],
-          "samples": [
-            "new messages count",
-            "how many messages recived",
-            "inbox status"
-          ]
-        },
-        {
-          "name": "EmailIntent",
-          "slots": [],
-          "samples": ["email", "what is my email", "what's my email address"]
-        },
-        {
-          "name": "MobileIntent",
-          "slots": [],
-          "samples": [
-            "mobile",
-            "phone",
-            "mobile number",
-            "what is my mobile number",
-            "what is my phone number"
-          ]
-        },
-        {
-          "name": "SocialIntent",
-          "slots": [
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "samples": ["for {username}", "{username}"]
-            },
-            {
-              "name": "socialtype",
-              "type": "socialtype",
-              "samples": ["for {socialtype}", "{socialtype}"]
-            }
+      },
+      "dialog": {
+          "intents": [
+              {
+                  "name": "SocialIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.305394803245.120010167314"
+                          }
+                      },
+                      {
+                          "name": "socialtype",
+                          "type": "socialtype",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.305394803245.1608091197785"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "name": "StartUpdatesIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "duration",
+                          "type": "AMAZON.DURATION",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.1330677815272.1027356617777"
+                          }
+                      },
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.1330677815272.1199297120388"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "name": "FanCountIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "confirmationRequired": false,
+                          "elicitationRequired": false,
+                          "prompts": {}
+                      }
+                  ]
+              },
+              {
+                  "name": "vcardIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.800670886286.1609976352828"
+                          }
+                      }
+                  ]
+              },
+              {
+                  "name": "leaderboardIntent",
+                  "confirmationRequired": false,
+                  "prompts": {},
+                  "slots": [
+                      {
+                          "name": "username",
+                          "type": "AMAZON.FirstName",
+                          "confirmationRequired": false,
+                          "elicitationRequired": true,
+                          "prompts": {
+                              "elicitation": "Elicit.Slot.885593271719.1251378432350"
+                          }
+                      }
+                  ]
+              }
           ],
-          "samples": [
-            "give me {socialtype} link",
-            "social handles of {username}",
-            "give me {socialtype} link  of {username}",
-            "{socialtype} link of {username}"
-          ]
-        },
-        {
-          "name": "StartUpdatesIntent",
-          "slots": [
-            {
-              "name": "duration",
-              "type": "AMAZON.DURATION",
-              "samples": ["every {duration}", "{duration}"]
-            },
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "samples": ["for {username}", "{username}"]
-            }
-          ],
-          "samples": [
-            "keep me updated with {username} fans every {duration}",
-            "remind me fancount ",
-            "get me fancounts of {username} every {duration}"
-          ]
-        },
-        {
-          "name": "vcardIntent",
-          "slots": [
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "samples": ["{username}", "for {username}"]
-            }
-          ],
-          "samples": ["vcard", "vcard of {username}"]
-        },
-        {
-          "name": "leaderboardIntent",
-          "slots": [
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "samples": ["for {username}", "{username}"]
-            }
-          ],
-          "samples": ["leaderboard", "leaderboard of {username}"]
-        },
-        {
-          "name": "statisticsIntent",
-          "slots": [],
-          "samples": ["statistics"]
-        }
-      ],
-      "types": [
-        {
-          "name": "socialtype",
-          "values": [
-            {
-              "id": "01",
-              "name": {
-                "value": "instagram",
-                "synonyms": ["ig"]
-              }
-            },
-            {
-              "id": "02",
-              "name": {
-                "value": "facebook",
-                "synonyms": ["fb"]
-              }
-            },
-            {
-              "id": "03",
-              "name": {
-                "value": "youtube",
-                "synonyms": ["yt"]
-              }
-            },
-            {
-              "id": "04",
-              "name": {
-                "value": "tiktok",
-                "synonyms": ["tk"]
-              }
-            },
-            {
-              "id": "05",
-              "name": {
-                "value": "twitch",
-                "synonyms": ["tch"]
-              }
-            },
-            {
-              "id": "06",
-              "name": {
-                "value": "twitter",
-                "synonyms": ["twt"]
-              }
-            }
-          ]
-        }
+          "delegationStrategy": "ALWAYS"
+      },
+      "prompts": [
+          {
+              "id": "Elicit.Slot.734772271395.770646318317",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "For which user you want {socialtype} link?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.734772271395.275936582506",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Please provide social type"
+                  },
+                  {
+                      "type": "PlainText",
+                      "value": "For which social type do you want link?"
+                  }
+              ]
+          },
+          {
+              "id": "Confirm.Intent.1355904287273",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "do you confirm ?"
+                  }
+              ]
+          },
+          {
+              "id": "Confirm.Slot.375454201576.539142131735",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Did I hear your name correctly. Is your name {username} ?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.305394803245.1608091197785",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "ok, but which social type link do you want?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.305394803245.120010167314",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "ok, but for which user you want {socialtype} link?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.1330677815272.1027356617777",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "Ok, but for which time range i will update you?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.1330677815272.1199297120388",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "ok, got it but please provide username"
+                  },
+                  {
+                      "type": "PlainText",
+                      "value": "ok,but for which user you want fan count?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.1004343431885.1141069724365",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "ok, but for which user you want?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.800670886286.1609976352828",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "ok, but for which user you want?"
+                  }
+              ]
+          },
+          {
+              "id": "Elicit.Slot.885593271719.1251378432350",
+              "variations": [
+                  {
+                      "type": "PlainText",
+                      "value": "ok, but for which user's leaderboard you want?"
+                  }
+              ]
+          }
       ]
-    },
-    "dialog": {
-      "intents": [
-        {
-          "name": "SocialIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.305394803245.120010167314"
-              }
-            },
-            {
-              "name": "socialtype",
-              "type": "socialtype",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.305394803245.1608091197785"
-              }
-            }
-          ]
-        },
-        {
-          "name": "StartUpdatesIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "duration",
-              "type": "AMAZON.DURATION",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.1330677815272.1027356617777"
-              }
-            },
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.1330677815272.1199297120388"
-              }
-            }
-          ]
-        },
-        {
-          "name": "FanCountIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.1004343431885.1141069724365"
-              }
-            }
-          ]
-        },
-        {
-          "name": "vcardIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.800670886286.1609976352828"
-              }
-            }
-          ]
-        },
-        {
-          "name": "leaderboardIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "username",
-              "type": "AMAZON.FirstName",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.885593271719.1251378432350"
-              }
-            }
-          ]
-        }
-      ],
-      "delegationStrategy": "ALWAYS"
-    },
-    "prompts": [
-      {
-        "id": "Elicit.Slot.734772271395.770646318317",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "For which user you want {socialtype} link?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.734772271395.275936582506",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Please provide social type"
-          },
-          {
-            "type": "PlainText",
-            "value": "For which social type do you want link?"
-          }
-        ]
-      },
-      {
-        "id": "Confirm.Intent.1355904287273",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "do you confirm ?"
-          }
-        ]
-      },
-      {
-        "id": "Confirm.Slot.375454201576.539142131735",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Did I hear your name correctly. Is your name {username} ?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.305394803245.1608091197785",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "ok, but which social type link do you want?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.305394803245.120010167314",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "ok, but for which user you want {socialtype} link?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.1330677815272.1027356617777",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Ok, but for which time range i will update you?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.1330677815272.1199297120388",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "ok, got it but please provide username"
-          },
-          {
-            "type": "PlainText",
-            "value": "ok,but for which user you want fan count?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.1004343431885.1141069724365",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "ok, but for which user you want?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.800670886286.1609976352828",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "ok, but for which user you want?"
-          }
-        ]
-      },
-      {
-        "id": "Elicit.Slot.885593271719.1251378432350",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "ok, but for which user's leaderboard you want?"
-          }
-        ]
-      }
-    ]
   }
 }
