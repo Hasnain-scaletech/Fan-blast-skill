@@ -9,6 +9,7 @@ const LaunchRequestHandler = {
       Alexa.getRequestType(handlerInput.requestEnvelope) === "LaunchRequest"
     );
   },
+
   handle(handlerInput) {
     const speakOutput =
       "Welcome to Fanblast. You can ask like fan count of creatorname, top fans, phone number of creatorname, insights , messages.";
@@ -356,6 +357,24 @@ const HelpIntentHandler = {
   },
 };
 
+const FallbackIntentHandler = {
+  canHandle(handlerInput) {
+    return (
+      handlerInput.requestEnvelope.request.type === "IntentRequest" &&
+      handlerInput.requestEnvelope.request.intent.name ===
+        "AMAZON.FallbackIntent"
+    );
+  },
+  handle(handlerInput) {
+    const speechText = "Sorry, I don't know about that. Please try again.";
+
+    return handlerInput.responseBuilder
+      .speak(speechText)
+      .reprompt(speechText)
+      .getResponse();
+  },
+};
+
 const CancelAndStopIntentHandler = {
   canHandle(handlerInput) {
     return (
@@ -425,6 +444,7 @@ exports.handler = skillBuilder
     NameIntentHandler,
     MobileIntentHandler,
     HelpIntentHandler,
+    FallbackIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler,
     fanCountIntentHandler,

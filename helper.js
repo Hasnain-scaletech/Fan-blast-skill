@@ -58,7 +58,7 @@ module.exports = {
     }
   },
 
-  async messageRes(obj) {
+ async messageRes(obj) {
     const keys = Object.keys(obj);
     let temp = 5;
     let response = "";
@@ -66,9 +66,11 @@ module.exports = {
     for (let i = 0; i < temp; i++) {
       console.log(i, obj[keys[i]].message);
       if (obj[keys[i]].message && obj[keys[i]].message !== "") {
-        response += `${obj[keys[i]].name} said  <break time="100ms"/> ${
-          obj[keys[i]].message
-        }  <break time="200ms"/> `;
+        response += `${obj[keys[i]].name} said  <break time="100ms"/>
+        <lang xml:lang="de-DE">
+        ${obj[keys[i]].message}
+        </lang>
+        <break time="200ms"/> `;
       } else {
         temp = temp + 1;
       }

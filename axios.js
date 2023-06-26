@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { TOKEN, TIMEFRAME } = require("./constant");
+const { TOKEN } = require("./constant");
 
 module.exports = {
   async fanCounts(name) {
@@ -54,7 +54,7 @@ module.exports = {
   async getMessages(username) {
     return await axios
       .get(
-        `https://ee75-2401-4900-1c80-bc6f-c1a8-3484-3dc7-a06.ngrok-free.app/${username.toLowerCase()}`,
+        `https://5fb1-2401-4900-1c80-bc6f-e4a8-e36d-981e-ee05.ngrok-free.app/${username.toLowerCase()}`,
         {
           headers: {
             "Content-Type": "application/json",

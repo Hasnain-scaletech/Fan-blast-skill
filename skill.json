@@ -1,26 +1,133 @@
 {
   "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Fan blast",
+          "examplePhrases": [
+            "open blast app",
+            "fan count",
+            "Alexa open blast app"
+          ],
+          "keywords": [
+            "fan",
+            "blast",
+            "fanblast"
+          ],
+          "name": "blast app",
+          "description": "Fan blast",
+          "smallIconUri": "file://assets/images/en-US_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-US_largeIconUri.png"
+        },
+        "en-CA": {
+          "summary": "Fan blast",
+          "examplePhrases": [
+            "open blast app",
+            "fan count",
+            "Alexa open blast app"
+          ],
+          "keywords": [
+            "fan",
+            "blast",
+            "fanblast"
+          ],
+          "name": "blast app",
+          "description": "Fan blast",
+          "smallIconUri": "file://assets/images/en-CA_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-CA_largeIconUri.png"
+        },
+        "en-IN": {
+          "summary": "Fan blast",
+          "examplePhrases": [
+            "open blast app",
+            "fan count",
+            "Alexa open blast app"
+          ],
+          "keywords": [
+            "fan",
+            "blast",
+            "fanblast"
+          ],
+          "name": "blast app",
+          "description": "Fan blast",
+          "smallIconUri": "file://assets/images/en-IN_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-IN_largeIconUri.png"
+        },
+        "en-AU": {
+          "summary": "Fan blast",
+          "examplePhrases": [
+            "open blast app",
+            "fan count",
+            "Alexa open blast app"
+          ],
+          "keywords": [
+            "fan",
+            "blast",
+            "fanblast"
+          ],
+          "name": "blast app",
+          "description": "Fan blast",
+          "smallIconUri": "file://assets/images/en-AU_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-AU_largeIconUri.png"
+        },
+        "en-GB": {
+          "summary": "Fan blast",
+          "examplePhrases": [
+            "open blast app",
+            "fan count",
+            "Alexa open blast app"
+          ],
+          "keywords": [
+            "fan",
+            "blast",
+            "fanblast"
+          ],
+          "name": "blast app",
+          "description": "Fan blast",
+          "smallIconUri": "file://assets/images/en-GB_smallIconUri.png",
+          "largeIconUri": "file://assets/images/en-GB_largeIconUri.png"
+        }
+      },
+      "automaticDistribution": {
+        "isActive": false
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "{\"ask_dist_username\":\"\",\"ask_dist_password\":\"\",\"ask_dist_testing_instructions\":\"Sample Testing Instructions.\"}",
+      "category": "SOCIAL_NETWORKING",
+      "distributionMode": "PUBLIC",
+      "automaticClonedLocale": {
+        "locales": [
+          {
+            "source": "en-US"
+          }
+        ]
+      },
+      "distributionCountries": [
+        "US",
+        "IN"
+      ]
+    },
     "apis": {
       "custom": {
         "endpoint": {
-          "uri": "arn:aws:lambda:us-east-1:292390782991:function:96262bd6-ae48-4067-bb85-d24d8e788333:Release_0"
+          "uri": "arn:aws:lambda:us-east-1:271001947720:function:e4a1954d-42c6-455f-81c0-b4accc4ae30f:Release_0"
         },
         "interfaces": [],
         "locales": {},
         "regions": {
           "EU": {
             "endpoint": {
-              "uri": "arn:aws:lambda:eu-west-1:292390782991:function:96262bd6-ae48-4067-bb85-d24d8e788333:Release_0"
+              "uri": "arn:aws:lambda:eu-west-1:271001947720:function:e4a1954d-42c6-455f-81c0-b4accc4ae30f:Release_0"
             }
           },
           "NA": {
             "endpoint": {
-              "uri": "arn:aws:lambda:us-east-1:292390782991:function:96262bd6-ae48-4067-bb85-d24d8e788333:Release_0"
+              "uri": "arn:aws:lambda:us-east-1:271001947720:function:e4a1954d-42c6-455f-81c0-b4accc4ae30f:Release_0"
             }
           },
           "FE": {
             "endpoint": {
-              "uri": "arn:aws:lambda:us-west-2:292390782991:function:96262bd6-ae48-4067-bb85-d24d8e788333:Release_0"
+              "uri": "arn:aws:lambda:us-west-2:271001947720:function:e4a1954d-42c6-455f-81c0-b4accc4ae30f:Release_0"
             }
           }
         }
@@ -38,77 +145,33 @@
         "name": "alexa::profile:mobile_number:read"
       }
     ],
-    "publishingInformation": {
-      "automaticClonedLocale": {
-        "locales": [
-          {
-            "source": "en-US",
-            "targets": [
-              "en-IN"
-            ]
-          }
-        ]
-      },
-      "distributionCountries": [],
-      "isAvailableWorldwide": true,
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
       "locales": {
         "en-US": {
-          "description": "Sample Full Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "keywords": [],
-          "name": "Fan blast one",
-          "summary": "Sample Short Description"
+          "privacyPolicyUrl": "https://www.scaletech.xyz/"
         },
         "en-CA": {
-          "description": "Sample Full Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "keywords": [],
-          "name": "Fan blast one",
-          "summary": "Sample Short Description"
+          "privacyPolicyUrl": "https://www.scaletech.xyz/"
         },
         "en-IN": {
-          "description": "Sample Full Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "keywords": [],
-          "name": "Fan blast one",
-          "summary": "Sample Short Description"
+          "privacyPolicyUrl": "https://www.scaletech.xyz/"
         },
         "en-AU": {
-          "description": "Sample Full Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "keywords": [],
-          "name": "Fan blast one",
-          "summary": "Sample Short Description"
+          "privacyPolicyUrl": "https://www.scaletech.xyz/"
         },
         "en-GB": {
-          "description": "Sample Full Description",
-          "examplePhrases": [
-            "Alexa open hello world",
-            "hello",
-            "help"
-          ],
-          "keywords": [],
-          "name": "Fan blast one",
-          "summary": "Sample Short Description"
+          "privacyPolicyUrl": "https://www.scaletech.xyz/"
         }
       },
-      "testingInstructions": "Sample Testing Instructions."
+      "containsAds": false,
+      "isExportCompliant": true,
+      "isChildDirected": false,
+      "shoppingKit": {
+        "isShoppingActionsEnabled": false,
+        "isAmazonAssociatesOnAlexaEnabled": false
+      },
+      "usesPersonalInfo": true
     }
   }
 }

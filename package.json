@@ -1,0 +1,21 @@
+{
+  "name": "blast_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "npm run prebuild && npm run postbuild",
+    "prebuild": "npm i",
+    "postbuild": "zip -r index.zip axios.js constant.js helper.js index.js node_modules/*"
+  },
+  "author": "Amazon Alexa",
+  "license": "Apache License",
+  "dependencies": {
+    "ask-sdk-core": "^2.7.0",
+    "ask-sdk-model": "^1.19.0",
+    "aws-sdk": "^2.326.0",
+    "axios": "^1.4.0",
+    "firebase-admin": "9.6.0"
+  }
+}
